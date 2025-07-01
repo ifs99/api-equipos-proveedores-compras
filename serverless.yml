@@ -1,0 +1,136 @@
+org: italoflores
+service: api-equipos-proveedores-compras
+
+provider:
+  name: aws
+  runtime: python3.13
+  memorySize: 1024
+  timeout: 20
+  iam:
+    role: arn:aws:iam::851725561112:role/LabRole
+
+functions:
+# Equipos
+  listarEquipos:
+    handler: equipos.listar
+    events:
+      - http:
+          path: /equipos/listar
+          method: get
+          cors: true
+          integration: lambda
+  buscarEquipos:
+    handler: equipos.buscar
+    events:
+      - http:
+          path: /equipos/buscar
+          method: post
+          cors: true
+          integration: lambda
+  crearEquipos:
+    handler: equipos.crear
+    events:
+      - http:
+          path: /equipos/crear
+          method: post
+          cors: true
+          integration: lambda
+  modificarEquipos:
+    handler: equipos.modificar
+    events:
+      - http:
+          path: /equipos/modificar
+          method: put
+          cors: true
+          integration: lambda
+  eliminarEquipos:
+    handler: equipos.eliminar
+    events:
+      - http:
+          path: /equipos/eliminar
+          method: delete
+          cors: true
+          integration: lambda
+# Proovedores
+  listarProveedores:
+    handler: proveedores.listar
+    events:
+      - http:
+          path: /proveedores/listar
+          method: get
+          cors: true
+          integration: lambda
+  buscarProveedores:
+    handler: proveedores.buscar
+    events:
+      - http:
+          path: /proveedores/buscar
+          method: post
+          cors: true
+          integration: lambda
+  crearProveedores:
+    handler: proveedores.crear
+    events:
+      - http:
+          path: /proveedores/crear
+          method: post
+          cors: true
+          integration: lambda
+  modificarProveedores:
+    handler: proveedores.modificar
+    events:
+      - http:
+          path: /proveedores/modificar
+          method: put
+          cors: true
+          integration: lambda
+  eliminarProveedores:
+    handler: proveedores.eliminar
+    events:
+      - http:
+          path: /proveedores/eliminar
+          method: delete
+          cors: true
+          integration: lambda     
+# Compras
+  listarCompras:
+    handler: compras.listar
+    events:
+      - http:
+          path: /compras/listar
+          method: get
+          cors: true
+          integration: lambda
+  buscarCompras:
+    handler: compras.buscar
+    events:
+      - http:
+          path: /compras/buscar
+          method: post
+          cors: true
+          integration: lambda
+  crearCompras:
+    handler: compras.crear
+    events:
+      - http:
+          path: /compras/crear
+          method: post
+          cors: true
+          integration: lambda
+  modificarCompras:
+    handler: compras.modificar
+    events:
+      - http:
+          path: /compras/modificar
+          method: put
+          cors: true
+          integration: lambda
+  eliminarCompras:
+    handler: compras.eliminar
+    events:
+      - http:
+          path: /compras/eliminar
+          method: delete
+          cors: true
+          integration: lambda         
+            
